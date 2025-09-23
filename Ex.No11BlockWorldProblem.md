@@ -17,6 +17,7 @@ Step 10 : Obtain the plan for given problem.<br>
      
 ### Program:
 ### Domain.pddl:
+```
 (define (domain blocksworld)
  (:requirements :strips :equality)
  (:predicates (clear ?x)
@@ -42,25 +43,30 @@ Step 10 : Obtain the plan for given problem.<br>
  (:action unstack
  :parameters (?ob ?underob)                                                                                                                           :precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
  :effect (and (holding ?ob) (clear ?underob)
- (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty))))) 
+ (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))))
+```
 
 ### Problem1.pddl:
+```
 (define (problem pb1)
  (:domain blocksworld)
  (:objects a b)
  (:init (on-table a) (on-table b) (clear a) (clear b) (arm-empty))
  (:goal (and (on a b))))
+```
 
 ### Output:
 <img width="656" height="793" alt="image" src="https://github.com/user-attachments/assets/e67e2b46-29db-473e-9abc-7ea33f8e7f65" />
 
 ### Problem2.pddl:
+```
 (define(problem pb3)
  (:domain blocksworld)
  (:objects a b c)
  (:init (on-table a) (on-table b) (on-table c)
  (clear a) (clear b) (clear c) (arm-empty))
  (:goal (and (on a b) (on b c))))
+```
 
  ### Output:
 <img width="628" height="812" alt="image" src="https://github.com/user-attachments/assets/b4744c87-8775-4197-809d-52181a3d41bb" />
